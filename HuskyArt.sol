@@ -7,17 +7,31 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract HuskyArt is ERC721, ERC721URIStorage, Ownable {
+    mapping(uint256 => address) creatorOf;
+    mapping(uint256 => uint256) royaltyFor;
+    address public god;
+
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIdCounter;
 
-    constructor() ERC721("HuskyArt", "HSK") {}
+    constructor() ERC721("HuskyArt", "HSK") {
+        god = msg.sender;
+    }
 
     function _baseURI() internal pure override returns (string memory) {
         return "https://anipub.s3.amazonaws.com/husky-art/husky-";
     }
 
-    function safeMint() public {
+    function getCreatorOf(uint256 _tokenId) public view returns (address) {
+        return creatorOf[_tokenId];
+    }
+
+    function getRoyaltyFor(uint256 _tokenId) public view returns (uint256) {
+        return royaltyFor[_tokenId];
+    }
+
+    function safeMint(uint256 _royalty) public {
         uint256 tokenId = _tokenIdCounter.current();
 
         bytes memory ts;
@@ -29,10 +43,12 @@ contract HuskyArt is ERC721, ERC721URIStorage, Ownable {
 
         _tokenIdCounter.increment();
         _safeMint(msg.sender, tokenId);
+
+        creatorOf[tokenId] = msg.sender;
+        royaltyFor[tokenId] = _royalty;
+
         _setTokenURI(tokenId, uri);
     }
-
-    // The following functions are overrides required by Solidity.
 
     function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
         super._burn(tokenId);
@@ -67,6 +83,25 @@ contract HuskyArt is ERC721, ERC721URIStorage, Ownable {
             _i /= 10;
         }
         return string(bstr);
+    }
+
+    function transfer(address from, address to, uint256 tokenId) public payable  returns(bool) {
+        uint256 royaltyAmount = royaltyFor[tokenId];
+        require(msg.value > royaltyAmount, "No Service Fee in negative :(");
+
+        uint256 serviceFee = msg.value - royaltyFor[tokenId];
+
+        address creator = creatorOf[tokenId];
+
+        (bool success, )= creator.call{value:royaltyAmount}("");
+        require(success, "Failed to pay Royalty!");
+
+        (bool successG, )= creator.call{value:serviceFee}("");
+        require(successG, "Failed to pay God!");
+
+        safeTransferFrom(from, to, tokenId);
+
+        return true;
     }
 
 }
