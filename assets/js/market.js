@@ -2,6 +2,7 @@
 
 let nftItemDiv = '<div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="nft-0"><a href="#"><img class="nft-item hover:grow hover:shadow-lg" id="nft-item-img" src="imgplaceholder"><div class="pt-3 flex items-center justify-between"><p class="">Husky Art</p></div><p class="pt-1 text-gray-900 nft-owner" id="owner-0-address">Available</p></a></div>';
 
+// TODO: Add an editor to input abi.
 let huskyArtAbi = [
 	{
 		"inputs": [],
@@ -399,6 +400,7 @@ let huskyArtAbi = [
 	}
 ];
 
+// TODO: Add an editor to input contract address.
 let huskyArtContractAddress = '0xBB78A18a080619293474fe41F9193D4A6932B08F';
 
 $(function() {
