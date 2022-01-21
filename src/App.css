@@ -1,0 +1,17 @@
+
+.nav-logo {
+    height: 40px;
+}
+
+.footer-logo {
+    height: 100px;
+}
+
+.nav-logo:hover,
+.footer-logo:hover {
+    text-decoration: none;
+}
+
+.home-hero-right {
+    background-image: url(https://i.imgur.com/BrneU1v.gif);
+}
