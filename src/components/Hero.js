@@ -9,9 +9,9 @@ function Hero() {
             <p class="mt-6 text-gray-500 light:text-gray-300">Discover the most amazing forms of art and creatives. Own and trade with fellow admirers</p>
         </div>
 
-        <div class="flex justify-center mt-10">
+        {/* <div class="flex justify-center mt-10">
           <FeaturedSlider />
-        </div>
+        </div> */}
     </div>
   );
 }
