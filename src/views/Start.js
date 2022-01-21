@@ -1,9 +1,9 @@
 function Start() {
-  return [
+  return (
     <div>
         Start
     </div>
-  ];
+  );
 }
 
 export default Start;

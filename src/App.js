@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import Nav from './components/Nav';
-import Footer from './components/Footer';
+import Nav from './partials/Nav';
+import Footer from './partials/Footer';
 import AppRoutes from './routes/routes';
 import "./App.css";
 

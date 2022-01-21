@@ -24,6 +24,9 @@ You do need [Metamask](https://metamask.io/) on the browser to run this.
 src
 ├── App.js
 ├── components
+│   └── ItemCard.js
+├── partials
+│   ├── FeaturedSlider.js
 │   ├── Footer.js
 │   ├── Hero.js
 │   └── Nav.js
