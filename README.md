@@ -2,6 +2,8 @@
 
 A Demo NFT Marketplace.
 
+Created using [react-router-tailwind-boilerplate](https://github.com/anistark/react-router-tailwind-boilerplate).
+
 *Note: This is for demo and learning purposes only. Do not rely on this code for production. Do not share your seed or private key anywhere in code.*
 
 If you're not aware of what an NFT is, [read this article](https://blog.anirudha.dev/what-is-nft) to get started.
@@ -35,17 +37,13 @@ src
    └── Start.js
 ```
 
-### Screenshot:
 
-![Landing Screenshot](./screenshots/landing.png "Landing Screenshot")
 
 ## How to use this Boilerplate: 🔧
-1. Clone the new repo: `git clone git@github.com:anistark/react-router-tailwind-boilerplate.git`. (You can also **fork** the repo and then clone it.)
-2. `cd react-router-tailwind-boilerplate`
-3. Node version built on: `v17.0.1`. You can check your node version by `node -v`.
+1. Node version built on: `v17.0.1`. You can check your node version by `node -v`.
    1. You can switch to the supported version by using [nvm](https://github.com/nvm-sh/nvm) or [n](https://github.com/tj/n). Example: `nvm use 17`.
    2. If you use some other version of node. Feel free to check the compatibility and [report back](https://github.com/anistark/react-router-tailwind-boilerplate/issues/new/choose) if it doesn't work.
-4. Setup Dependencies: `npm install` or `yarn install`.
+2. Setup Dependencies: `npm install` or `yarn install`.
 
 ## Available Scripts: ✔️
 
@@ -135,8 +133,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 # Contribute: 🙌 
 Contributions most welcome. 🙏
-1. Add a new feature. Just [check open PRs](https://github.com/anistark/react-router-tailwind-boilerplate/pulls) if someone else is already working on have worked on it the past.
-2. [Request new Features](https://github.com/anistark/react-router-tailwind-boilerplate/issues/new/choose).
+1. Add a new feature. Just [check open PRs](https://github.com/anistark/nftspace/pulls) if someone else is already working on have worked on it the past.
+2. [Request new Features](https://github.com/anistark/nftspace/issues/new/choose).
 
 ---
 
