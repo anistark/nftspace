@@ -4,6 +4,7 @@ function ItemCard(data) {
 	// console.log('data:', data.data);
 	let tokenId = data.data.tokenId;
     let uri = data.data.uri;
+
     return (
         <div key={tokenId} className="max-w-xs max-h-80 mx-10 bg-white rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-500">
 		    <div className="p-4">

@@ -1,10 +1,19 @@
+import { useContext } from 'react';
 import Hero from '../partials/Hero';
 import ItemCard from '../components/ItemCard';
 import ItermCardLoading from '../components/ItermCardLoading';
+// import nfts from '../partials/Nav';
 
 function Home() {
   let nftData = [];
-  let nftCards = '';
+  
+  // Fetch Contract Data
+  if(window.contract) {
+    console.log('contract:', window.contract);
+  }
+
+  let nftCards = [];
+  console.log('nftCards:', nftCards);
   if (nftData.length > 0) {
     nftCards = nftData.map(function(nftItemData){
       return <ItemCard data={nftItemData} />
