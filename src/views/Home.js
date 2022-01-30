@@ -9,12 +9,11 @@ import Hero from '../partials/Hero';
 import ItemCard from '../components/ItemCard';
 import ItermCardLoading from '../components/ItermCardLoading';
 import abi from '../contracts/huskyart/abi.json';
-// import nfts from '../partials/Nav';
 
 function Home() {
-  const address = process.env.REACT_APP_CONTRACT_ADDRESS;
+  var address = process.env.REACT_APP_CONTRACT_ADDRESS;
   var [nftCards, updateNFTCards] = useState(null);
-  const [nfts, setNFTs] = useState([]);
+  var [nfts, setNFTs] = useState([]);
   const [defaultAccount, setDefaultAccount] = useState(null);
   const [provider, setProvider] = useState(null);
   var contract;
@@ -55,20 +54,22 @@ function Home() {
   useEffect(() => {
     // document.title = `Hello Home`;
     // loadNFTs
-    console.log('address:', address);
+    // console.log('address:', address);
     connectWalletHandler();
-    console.log('nfts:', nfts);
+    // console.log('nfts:', nfts);
     loadNFTs(nfts);
   }, [address, nfts]);
 
   const loadNFTs = (nftData) => {
-    console.log('nftData:', nftData);
+    // console.log('nftData:', nftData);
     // let nftCards = [];
     // console.log('nftCards:', nftCards);
     if (nftData.length > 0) {
+      let n = 0;
       nftCards = nftData.map(function(nftItemData) {
-        console.log('nftItemData:', nftItemData);
-        return <ItemCard data={nftItemData} />
+        n += 1;
+        // console.log('nftItemData:', nftItemData);
+        return <ItemCard data={nftItemData} key={n} />
       });
     } else {
       console.log('No Data. Loading...');
@@ -81,7 +82,7 @@ function Home() {
     let i = 0;
     // let nfts = [];
     while (true) {
-        console.log('fetching owner for token #', i);
+        // console.log('fetching owner for token #', i);
         // console.log('contract:', contract);
         // let contractName = await contract.name();
         // console.log('contractName:', contractName);
@@ -95,9 +96,11 @@ function Home() {
             console.log('error:', error);
             // set nfts state
             // renderCards(nfts)
-            setNFTs(nfts)
+            // setNFTs(nfts);
             break;
         }
+        setNFTs(nfts);
+        loadNFTs(nfts);
         // console.log('nft #', i, ':', nfts[i]);
         i += 1;
     }

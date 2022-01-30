@@ -1,7 +1,7 @@
 // import { Link } from "react-router-dom";
 
 function ItemCard(data) {
-	console.log('data:', data);
+	// console.log('data:', data.data);
 	let tokenId = data.data.tokenId;
     let uri = data.data.uri;
 
