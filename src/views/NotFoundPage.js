@@ -9,7 +9,7 @@ const NotFoundPage = () => {
         <h1 className="mt-2 mb-1 text-2xl lg:text-3xl">We'll be back soon!</h1>
         <div>
           <p>
-            Sorry for the inconvenience. The page you're looking for is not found. You can always follow me on
+            Sorry for the inconvenience. The page you're looking for is not found. You can always follow me on 
             <a className="text-blue-700 font-semibold hover:underline hover:decoration-wavy" href="https://twitter.com/kranirudha">Twitter</a> for more updates.
           </p>
           <p className="mt-4">Team NFT Space</p>
