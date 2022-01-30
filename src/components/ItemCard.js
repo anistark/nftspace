@@ -4,15 +4,16 @@ function ItemCard(data) {
 	// console.log('data:', data.data);
 	let tokenId = data.data.tokenId;
     let uri = data.data.uri;
+	// let owner = data.data.owner;
 
     return (
-        <div key={tokenId} className="max-w-xs max-h-80 mx-10 bg-white rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-500">
+        <div key={tokenId} className="max-w-xs max-h-[34rem] mx-10 bg-white rounded-xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-500">
 		    <div className="p-4">
                 <img className="rounded-xl" src={uri} alt="Dog" />
             </div>
 			<div className="flex justify-between p-6">
 				<div className="flex items-center space-x-4">
-					<img className="h-10 rounded-full" src={uri} alt="" />
+					<img className="h-10 rounded-full" src={uri} alt="Owner" />
 					<h1 className="text-lg text-gray-900 font-bold">NFT #{tokenId}</h1>
 				</div>
 				{/* <div className="flex space-x-6 items-center">
