@@ -16,7 +16,8 @@ function Home() {
   var [nfts, setNFTs] = useState([]);
   const [defaultAccount, setDefaultAccount] = useState(null);
   const [provider, setProvider] = useState(null);
-  var contract;
+  const [contract, setContract] = useState(null);
+  // var contract;
 
   const connectWalletHandler = async () => {
     if (window.ethereum && defaultAccount == null) {
@@ -33,13 +34,15 @@ function Home() {
             setDefaultAccount(result[0]);
 
             // Contract Instance
-            contract = new ethers.Contract(
+            let contractClient = new ethers.Contract(
                 address,
                 abi,
                 signer
             );
-            fetchNFTs(contract);
-            // console.log('contract:', window.contract);
+            // console.log('contractClient:', contractClient);
+            fetchNFTs(contractClient);
+            setContract(contractClient);
+            // setState({contract: contractClient});
         })
         .catch((error) => {
             console.log('error:', error.message);
@@ -58,7 +61,8 @@ function Home() {
     connectWalletHandler();
     // console.log('nfts:', nfts);
     loadNFTs(nfts);
-  }, [address, nfts]);
+    console.log('contract 2:', contract);
+  }, [address, nfts, contract]);
 
   const loadNFTs = (nftData) => {
     // console.log('nftData:', nftData);
@@ -82,6 +86,7 @@ function Home() {
     let i = 0;
     // let nfts = [];
     while (true) {
+      // console.log('contract state:', this.state.contract);
         // console.log('fetching owner for token #', i);
         // console.log('contract:', contract);
         // let contractName = await contract.name();
@@ -108,7 +113,7 @@ function Home() {
 
   return [
     <Hero title="NFT Marketplace" description="Discover the most amazing forms of art and creatives. Own and trade with fellow admirers" key="home-hero" />,
-    <div key="home-cards" className="min-h-screen flex justify-center py-50">
+    <div key="home-cards" className="flex justify-center min-h-screen py-50">
       {nftCards}
     </div>
   ];
