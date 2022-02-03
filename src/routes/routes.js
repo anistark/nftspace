@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import { Routes, Route } from "react-router-dom";
+import { WalletHandler } from "../handlers/Wallet";
 
 // views
 const Home = lazy(() => import("../views/Home"));
@@ -10,6 +11,7 @@ const NFTDetail = lazy(() => import("../views/NFTDetail"));
 
 
 function AppRoutes() {
+  console.log('WalletHandler:', WalletHandler());
   return (
     <Routes>
         <Route path="/" element={<Home />} exact />

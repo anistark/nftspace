@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import abi from '../contracts/huskyart/abi.json';
 
-function WalletHandler() {
+export function WalletHandler() {
     // const [errorMessage, setErrorMessage] = useState(null);
     // const [userBalance, setUserBalance] = useState(null);
     const [connButtonText, setConnButtonText] = useState("Connect Wallet");
@@ -76,4 +76,7 @@ function WalletHandler() {
     );
 }
 
-export default WalletHandler;
+export const justAnAlert = () => {
+    alert('hello');
+ };
+ 
