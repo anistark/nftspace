@@ -10,13 +10,14 @@ import ItemCard from '../components/ItemCard';
 import ItermCardLoading from '../components/ItermCardLoading';
 import abi from '../contracts/huskyart/abi.json';
 
-function Home() {
+function Home(data) {
   var address = process.env.REACT_APP_CONTRACT_ADDRESS;
+  const contract = data.contract;
   var [nftCards, updateNFTCards] = useState(null);
   var [nfts, setNFTs] = useState([]);
   const [defaultAccount, setDefaultAccount] = useState(null);
   const [provider, setProvider] = useState(null);
-  const [contract, setContract] = useState(null);
+  // const [contract, setContract] = useState(null);
   // var contract;
 
   const connectWalletHandler = async () => {
@@ -41,7 +42,7 @@ function Home() {
             );
             // console.log('contractClient:', contractClient);
             fetchNFTs(contractClient);
-            setContract(contractClient);
+            // setContract(contractClient);
             // setState({contract: contractClient});
         })
         .catch((error) => {
